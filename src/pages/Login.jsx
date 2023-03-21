@@ -1,0 +1,89 @@
+import React, { useState } from "react";
+import axios from "axios";
+import { NavLink, useNavigate } from "react-router-dom";
+import Button from "../component/Button";
+import CheckBox from "../component/CheckBox";
+import Input from "../component/Input";
+
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (email === "" && password === "") {
+      return false;
+    }
+
+    let data = new FormData();
+    data.append("email", email);
+    data.append("password", password);
+
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: "https://frontendreq.pondokprogrammer.com/api/login",
+      headers: {},
+      data: data,
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+        localStorage.setItem("token", response.data.token);
+        navigate("/Dashboard");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  return (
+    <div className="w-full h-screen flex justify-center items-center">
+      <form
+        className="w-[350px] h-[500px] rounded-xl bg-white absolute shadow-[4px_4px_12px_rgba(0,0,0,0.25)]"
+        onSubmit={handleSubmit}
+      >
+        <div className="w-full flex justify-center p-16">
+          <h1 className="text-[35px] leading-[40px] font-bold text-[#6889FF]">
+            Login
+          </h1>
+        </div>
+        <div className="flex justify-center flex-col gap-3 w-full p-5">
+          <Input
+            type="email"
+            placeholder="Masukkan Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="Masukkan Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="flex justify-center">
+          <Button />
+        </div>
+        <div className="w-full flex flex-col ml-10 mt-2 gap-5">
+          <CheckBox />
+          <div>
+            <p>
+              Belum memiliki akun,
+              <NavLink to="/" className="text-[#0038FF] pl-1">
+                Register
+              </NavLink>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Login;
