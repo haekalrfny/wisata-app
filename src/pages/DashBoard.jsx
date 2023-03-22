@@ -10,7 +10,7 @@ const DashBoard = () => {
     const checkUserToken = () => {
       const userToken = localStorage.getItem("token");
       if (!userToken || userToken === "undefined") {
-        return navigate("/Login");
+        return navigate("/");
       }
     };
     checkUserToken();

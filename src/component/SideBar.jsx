@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 const SideBar = () => {
   const [show, setShow] = useState(false);
   const active = ({isActive}) => {
-    return isActive ? "text-3xl text-[#0038FF]" : "text-3xl";
+    return isActive ? "text-3xl text-[#0038FF] scale-105" : "text-3xl hover:scale-105 duration-75";
   };
   return (
     <>
@@ -59,7 +59,7 @@ const SideBar = () => {
                 >
                   Batal
                 </NavLink>
-                <NavLink to='/Login' className="bg-[#6889ff] hover:bg-[#3D62E6] px-14 py-2 font-extrabold text-sm rounded-[12px] text-[#FFFFFF]">
+                <NavLink to='/' className="bg-[#6889ff] hover:bg-[#3D62E6] px-14 py-2 font-extrabold text-sm rounded-[12px] text-[#FFFFFF]">
                   Logout
                 </NavLink>
               </div>

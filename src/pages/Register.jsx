@@ -42,7 +42,7 @@ const Register = () => {
       .request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-        navigate("/Login");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -92,7 +92,7 @@ const Register = () => {
         <div className="w-full ml-10 mt-2">
           <p>
             Sudah memiliki akun,
-            <NavLink to="/Login" className="text-[#0038FF] pl-1">
+            <NavLink to="/" className="text-[#0038FF] pl-1">
               Login
             </NavLink>
           </p>

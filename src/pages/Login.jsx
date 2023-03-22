@@ -75,7 +75,7 @@ const Login = () => {
           <div>
             <p>
               Belum memiliki akun,
-              <NavLink to="/" className="text-[#0038FF] pl-1">
+              <NavLink to="/Register" className="text-[#0038FF] pl-1">
                 Register
               </NavLink>
             </p>
