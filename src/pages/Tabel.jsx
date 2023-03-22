@@ -30,10 +30,10 @@ const Tabel = () => {
               <td>airterjun.mail.com</td>
               <td>
                 <span className="w-full gap-7 flex justify-center ">
-                  <NavLink to='/Dashboard/UbahWisata'>
+                  <NavLink to='/Dashboard/DetailWisata' >
                     <CiCircleInfo className="text-2xl" />
                   </NavLink>
-                  <NavLink>
+                  <NavLink to='/Dashboard/UbahWisata'>
                     <CiEdit className="text-2xl" />
                   </NavLink>
                   <NavLink>

@@ -22,7 +22,7 @@ const DashBoard = () => {
   }, []);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     const getData = () => {
       let config = {
         method: "get",
@@ -36,28 +36,25 @@ const DashBoard = () => {
       instance
         .request(config)
         .then((response) => {
-          setLoading(false)
-          setData(response.data.data)
+          setLoading(false);
+          setData(response.data.data);
         })
         .catch((error) => {
           console.log(error);
-          setLoading(false)
+          setLoading(false);
         });
-      };
-      getData()
+    };
+    getData();
   }, []);
 
   if (loading) {
     return (
       <div className="w-full h-screen flex justify-center items-center">
-        <p className="animate-bounce">loading...</p>
-      </div>
-      
-    )
-  } else {
-
   
-
+<div class="ping"></div>
+      </div>
+    );
+  } else {
     return (
       <div className="w-full ">
         <div className="h-full fixed flex items-center">
@@ -75,8 +72,16 @@ const DashBoard = () => {
           <div className=" grow flex justify-center p-16 flex-wrap gap-8 ml-16">
             {data?.map((item) => {
               return (
-                <Cards key={item.id} src={item.photo} alt={item.name} name={item.name} address={item.address} city={item.city} phone={item.phone} />
-              )
+                <Cards
+                  key={item.id}
+                  src={item.photo}
+                  alt={item.name}
+                  name={item.name}
+                  address={item.address}
+                  city={item.city}
+                  phone={item.phone}
+                />
+              );
             })}
           </div>
           <div>
