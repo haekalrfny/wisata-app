@@ -36,10 +36,11 @@ const Login = () => {
         console.log(JSON.stringify(response.data));
         if (response.data.token) {
           localStorage.setItem("token", response.data.token);
-          localStorage.setItem('userName', response.data.user.name)
-          navigate("/Dashboard");
+          localStorage.setItem("userName", response.data.user.name);
+          navigate("/Dashboard/Home");
         } else {
-          alert('Email atau Password salah')
+          alert("Email atau Password salah");
+          navigate("/");
         }
       })
       .catch((error) => {

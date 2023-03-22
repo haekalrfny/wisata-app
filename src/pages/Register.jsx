@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Input from "../component/Input";
 import Button from "../component/Button";
@@ -48,6 +48,7 @@ const Register = () => {
         console.log(error);
       });
   }
+  
 
   return (
     <div className="w-full h-screen flex justify-center items-center">

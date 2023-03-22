@@ -9,7 +9,7 @@ const Detail = () => {
     <div className="w-full h-screen flex flex-col justify-center items-center">
       <div className="w-full h-[15%] flex items-end py-5 justify-center">
         <div className="w-[700px] flex gap-10 items-center">
-          <NavLink to='/Dashboard'>
+          <NavLink to='/Dashboard/Home'>
           <SlArrowLeft className="text-3xl" />
           </NavLink>
           <h2 className="text-3xl font-bold leading-[39px] text-black">

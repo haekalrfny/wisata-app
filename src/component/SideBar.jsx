@@ -8,8 +8,10 @@ import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
   const [show, setShow] = useState(false);
-  const active = ({isActive}) => {
-    return isActive ? "text-3xl text-[#0038FF] scale-105" : "text-3xl hover:scale-105 duration-75";
+  const active = ({ isActive }) => {
+    return isActive
+      ? "text-3xl text-[#0038FF] scale-105"
+      : "text-3xl hover:scale-105 duration-75";
   };
   return (
     <>
@@ -17,21 +19,18 @@ const SideBar = () => {
         id="sidebar"
         className="h-[450px] w-[70px] px-5 py-6 flex flex-col justify-between shadow-[4px_4px_4px_rgba(0,0,0,0.25)] rounded-[0px_20px_20px_0px]"
       >
-        <div className="flex flex-col gap-8">
-          <NavLink to="/Dashboard" className={active}>
+        <div className="h-[50%] flex flex-col justify-center gap-8">
+          <NavLink to="/Dashboard/Home" className={active}>
             <CiHome />
           </NavLink>
-          <NavLink to="/TabelWisata" className={active}>
+          <NavLink to="/Dashboard/TabelWisata" className={active}>
             <CiStickyNote />
           </NavLink>
-          <NavLink to="/TambahWisata" className={active}>
+          <NavLink to="/Dashboard/TambahWisata" className={active}>
             <CiCirclePlus />
           </NavLink>
-          <NavLink to="/UbahWisata" className={active}>
-            <CiEdit />
-          </NavLink>
         </div>
-        <div>
+        <div className="h-[50%] flex items-end">
           <NavLink onClick={() => setShow(true)} className="text-3xl">
             <CiLogout />
           </NavLink>
@@ -59,7 +58,10 @@ const SideBar = () => {
                 >
                   Batal
                 </NavLink>
-                <NavLink to='/' className="bg-[#6889ff] hover:bg-[#3D62E6] px-14 py-2 font-extrabold text-sm rounded-[12px] text-[#FFFFFF]">
+                <NavLink
+                  to="/"
+                  className="bg-[#6889ff] hover:bg-[#3D62E6] px-14 py-2 font-extrabold text-sm rounded-[12px] text-[#FFFFFF]"
+                >
                   Logout
                 </NavLink>
               </div>
