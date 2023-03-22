@@ -34,8 +34,13 @@ const Login = () => {
       .request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-        localStorage.setItem("token", response.data.token);
-        navigate("/Dashboard");
+        if (response.data.token) {
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem('userName', response.data.user.name)
+          navigate("/Dashboard");
+        } else {
+          alert('Email atau Password salah')
+        }
       })
       .catch((error) => {
         console.log(error);

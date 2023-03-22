@@ -5,7 +5,10 @@ import Search from "../component/Search";
 import SideBar from "../component/SideBar";
 
 const DashBoard = () => {
+
   const navigate = useNavigate();
+  const userName = localStorage.getItem('userName')
+
   useEffect(() => {
     const checkUserToken = () => {
       const userToken = localStorage.getItem("token");
@@ -22,8 +25,13 @@ const DashBoard = () => {
         <SideBar />
       </div>
       <div className="w-full h-screen flex flex-col">
-        <div className="py-5 flex items-center justify-end pr-40 pt-10">
+        <div className="w-full pl-10 pt-10 flex items-center justify-around">
+          <div>
+            <h1 className="text-4xl font-bold ">Hi, {userName}!</h1>
+          </div>
+        <div>
           <Search />
+        </div>
         </div>
         <div className=" grow flex justify-center p-16 flex-wrap gap-8 ml-16">
           <Cards />
