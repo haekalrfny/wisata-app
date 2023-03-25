@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import Button from "../component/Button";
 import CheckBox from "../component/CheckBox";
 import Input from "../component/Input";
+import instance from "../api/api";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -25,12 +25,12 @@ const Login = () => {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "https://frontendreq.pondokprogrammer.com/api/login",
+      url: "/login",
       headers: {},
       data: data,
     };
 
-    axios
+    instance
       .request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
@@ -38,13 +38,16 @@ const Login = () => {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("userName", response.data.user.name);
           navigate("/Dashboard/Home");
+          alert('login berhasil')
         } else {
-          alert("Email atau Password salah");
+          alert("email atau password salah");
           navigate("/");
         }
       })
       .catch((error) => {
         console.log(error);
+        alert('gagal login')
+
       });
   }
 
@@ -74,7 +77,7 @@ const Login = () => {
           />
         </div>
         <div className="flex justify-center">
-          <Button />
+          <Button button='Button' />
         </div>
         <div className="w-full flex flex-col ml-10 mt-2 gap-5">
           <CheckBox />

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Input from "../component/Input";
 import Button from "../component/Button";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -43,6 +42,7 @@ const Register = () => {
       .then((response) => {
         console.log(JSON.stringify(response.data));
         navigate("/");
+        console.log(berhasil);
       })
       .catch((error) => {
         console.log(error);
@@ -88,7 +88,7 @@ const Register = () => {
           />
         </div>
         <div className="flex justify-center">
-          <Button />
+          <Button button='Button' />
         </div>
         <div className="w-full ml-10 mt-2">
           <p>

@@ -47,11 +47,11 @@ const DashBoard = () => {
     getData();
   }, []);
 
+
   if (loading) {
     return (
       <div className="w-full h-screen flex justify-center items-center">
-  
-<div class="ping"></div>
+        <div className="ping"></div>
       </div>
     );
   } else {
@@ -61,15 +61,17 @@ const DashBoard = () => {
           <SideBar />
         </div>
         <div className="w-full h-screen flex flex-col">
-          <div className="w-full pl-16 pt-10 flex items-center justify-around">
+          <div className="ml-[71px] pt-10 flex items-center justify-center gap-60">
             <div>
-              <h1 className="text-4xl font-bold ">Hi, {userName}!</h1>
+              <h1 className="text-4xl font-medium">
+                Halo, <span className="text-4xl font-bold">{userName}!</span>
+              </h1>
             </div>
             <div>
               <Search />
             </div>
           </div>
-          <div className=" grow flex justify-center p-16 flex-wrap gap-8 ml-16">
+          <div className=" grow flex justify-center p-16 flex-wrap gap-8 ml-[71px]">
             {data?.map((item) => {
               return (
                 <Cards
@@ -85,7 +87,7 @@ const DashBoard = () => {
             })}
           </div>
           <div>
-            <footer className="w-full bg-[#6889FF] text-white flex flex-col text-sm items-center py-8 ">
+            <footer className="w-full bg-[#6889FF] text-white flex flex-col text-sm items-center py-5 ">
               <p>Footer Component</p>
               <p>Copyright 2023 All Right reserved</p>
             </footer>

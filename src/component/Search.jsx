@@ -1,6 +1,5 @@
 import React from "react";
 import { CiSearch } from "react-icons/ci";
-import { NavLink } from "react-router-dom";
 
 const Search = () => {
   return (
@@ -9,7 +8,7 @@ const Search = () => {
         <span className="text-2xl flex items-center">
           <CiSearch />
         </span>
-        <input type="text" className="border-none h-full outline-none" />
+        <input type="text" className="border-none h-full outline-none" placeholder="Cari sesuatu?"/>
       </div>
       <button className="bg-[#6889FF] hover:bg-[#3D62E5] rounded-[36px] text-white font-bold px-7 text-sm">
         Cari
