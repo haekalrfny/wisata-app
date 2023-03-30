@@ -7,7 +7,6 @@ import SideBar from "../component/SideBar";
 import instance from "../api/api";
 
 const TambahWisata = () => {
-  const [buttonStatus, setButtonStatus] = useState("create");
 
   const navigate = useNavigate();
 
@@ -20,6 +19,16 @@ const TambahWisata = () => {
   const [photo, setPhoto] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    const checkUserToken = () => {
+      const userToken = localStorage.getItem("token");
+      if (!userToken || userToken === "undefined") {
+        return navigate("/");
+      }
+    };
+    checkUserToken();
+  }, []);
+
   const fileChangeHandler = (e) => {
     setPhoto(e.target.files[0]);
     setImage(URL.createObjectURL(e.target.files[0]));
@@ -27,8 +36,6 @@ const TambahWisata = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setButtonStatus("wait creating...");
 
     let data = new FormData();
     data.append("name", name);
@@ -54,20 +61,22 @@ const TambahWisata = () => {
       .then((response) => {
         console.log(JSON.stringify(response.data));
         setLoading(false)
-        setButtonStatus("create");
-        navigate("/Dashboard/TabelWisata");
+        navigate("/Dashboard/Home");
       })
       .catch((error) => {
         console.log(error);
         setLoading(false)
-        setButtonStatus("create");
       });
   };
 
   if (loading) {
     return (
       <div className="w-full h-screen flex justify-center items-center">
-        <div className="ping"></div>
+        <div className="leap-frog">
+<div className="leap-frog__dot"></div>
+<div className="leap-frog__dot"></div>
+<div className="leap-frog__dot"></div>
+</div>
       </div>
     );
   } else {
@@ -143,7 +152,8 @@ const TambahWisata = () => {
                         <span>
                           <CiImageOn className="text-4xl" />
                         </span>
-                        <p>Masukkan Gambar</p>
+                          <p>Masukkan Gambar</p>
+                          <p>file must be : jpg, jpeg, png.</p>
                       </div>
                     )}
                     <input
@@ -155,7 +165,7 @@ const TambahWisata = () => {
                   </div>
                 </div>
                 <div className="w-full h-[40%] flex justify-center items-start pt-8">
-                  <Button button={buttonStatus} />
+                  <Button button='Create' />
                 </div>
               </div>
             </div>

@@ -48,7 +48,6 @@ const Register = () => {
         console.log(error);
       });
   }
-  
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
@@ -88,7 +87,7 @@ const Register = () => {
           />
         </div>
         <div className="flex justify-center">
-          <Button button='Button' />
+          <Button button="Button" />
         </div>
         <div className="w-full ml-10 mt-2">
           <p>

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { SlArrowLeft } from "react-icons/sl";
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import instance from "../api/api";
 
 const Detail = () => {
   const { id } = useParams();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const checkUserToken = () => {
@@ -47,7 +49,11 @@ const Detail = () => {
   if (loading) {
     return (
       <div className="w-full h-screen flex justify-center items-center">
-        <div className="ping"></div>
+        <div className="leap-frog">
+<div className="leap-frog__dot"></div>
+<div className="leap-frog__dot"></div>
+<div className="leap-frog__dot"></div>
+</div>
       </div>
     );
   } else {

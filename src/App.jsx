@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/Dashboard/DetailWisata/:id" element={<Detail />} />
           <Route path="/Dashboard/TabelWisata" element={<Tabel />} />
           <Route path="/Dashboard/TambahWisata" element={<TambahWisata />} />
-          <Route path="/Dashboard/UbahWisata" element={<UbahWisata />} />
+          <Route path="/Dashboard/UbahWisata/:id" element={<UbahWisata />} />
         </Routes>
       </BrowserRouter>
     </div>

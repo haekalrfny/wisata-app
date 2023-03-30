@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import Cards from "../component/Cards";
 import Search from "../component/Search";
 import SideBar from "../component/SideBar";
 import instance from "../api/api";
 
 const DashBoard = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
   const userName = localStorage.getItem("userName");
 
   useEffect(() => {
@@ -47,11 +50,21 @@ const DashBoard = () => {
     getData();
   }, []);
 
+  useEffect(() => {
+    const results = data.filter((item) =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSearchResult(results);
+  }, [searchQuery, data]);
 
   if (loading) {
     return (
       <div className="w-full h-screen flex justify-center items-center">
-        <div className="ping"></div>
+        <div className="leap-frog">
+          <div className="leap-frog__dot"></div>
+          <div className="leap-frog__dot"></div>
+          <div className="leap-frog__dot"></div>
+        </div>
       </div>
     );
   } else {
@@ -68,24 +81,36 @@ const DashBoard = () => {
               </h1>
             </div>
             <div>
-              <Search />
+              <Search value={searchQuery} onChange={setSearchQuery} />
             </div>
           </div>
-          <div className=" grow flex justify-center p-16 flex-wrap gap-8 ml-[71px]">
-            {data?.map((item) => {
-              return (
-                <Cards
-                  key={item.id}
-                  src={item.photo}
-                  alt={item.name}
-                  name={item.name}
-                  address={item.address}
-                  city={item.city}
-                  phone={item.phone}
-                />
-              );
-            })}
-          </div>
+          {searchResult.length > 0 ? (
+            <div
+              key={id}
+              className=" grow flex justify-center p-16 flex-wrap gap-8 ml-[71px]"
+            >
+              {searchResult?.map((item) => {
+                return (
+                  <NavLink to={`/Dashboard/DetailWisata/${item.id}`}>
+                    <Cards
+                      key={item.id}
+                      src={item.photo}
+                      alt={item.name}
+                      name={item.name}
+                      address={item.address}
+                      city={item.city}
+                      phone={item.phone}
+                    />
+                  </NavLink>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="w-full h-full flex justify-center items-center">
+              <p className="text-xl text-slate-700">gaada!</p>
+            </div>
+          )}
+
           <div>
             <footer className="w-full bg-[#6889FF] text-white flex flex-col text-sm items-center py-5 ">
               <p>Footer Component</p>

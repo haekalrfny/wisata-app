@@ -7,13 +7,16 @@ import { CiLogout } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const SideBar = () => {
-
-
   const [show, setShow] = useState(false);
   const active = ({ isActive }) => {
     return isActive
       ? "text-3xl text-[#0038FF] scale-110"
       : "text-3xl hover:scale-110 duration-75";
+  };
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
   };
 
   return (
@@ -34,7 +37,10 @@ const SideBar = () => {
           </NavLink>
         </div>
         <div className="h-[50%] flex items-end">
-          <NavLink onClick={() => setShow(true)} className="text-3xl hover:scale-110">
+          <NavLink
+            onClick={() => setShow(true)}
+            className="text-3xl hover:scale-110"
+          >
             <CiLogout />
           </NavLink>
         </div>
@@ -61,7 +67,9 @@ const SideBar = () => {
                 >
                   Batal
                 </NavLink>
-                <NavLink to='/'
+                <NavLink
+                  to="/"
+                  onClick={logOut}
                   className="bg-[#6889ff] hover:bg-[#3D62E6] px-14 py-2 font-extrabold text-sm rounded-[12px] text-[#FFFFFF]"
                 >
                   Logout

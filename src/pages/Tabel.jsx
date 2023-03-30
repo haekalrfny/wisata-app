@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { CiCircleInfo, CiEdit, CiTrash } from "react-icons/ci";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import SideBar from "../component/SideBar";
 import instance from "../api/api";
 
 const Tabel = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkUserToken = () => {
@@ -71,7 +73,11 @@ const Tabel = () => {
   if (loading) {
     return (
       <div className="w-full h-screen flex justify-center items-center">
-        <div className="ping"></div>
+        <div className="leap-frog">
+          <div className="leap-frog__dot"></div>
+          <div className="leap-frog__dot"></div>
+          <div className="leap-frog__dot"></div>
+        </div>
       </div>
     );
   } else {
@@ -109,7 +115,7 @@ const Tabel = () => {
                           <NavLink to={`/Dashboard/DetailWisata/${item.id} `}>
                             <CiCircleInfo className="text-xl hover:scale-110 duration-75" />
                           </NavLink>
-                          <NavLink to="/Dashboard/UbahWisata">
+                          <NavLink to={`/Dashboard/UbahWisata/${item.id}`}>
                             <CiEdit className="text-xl hover:scale-110 duration-75" />
                           </NavLink>
                           <NavLink>
