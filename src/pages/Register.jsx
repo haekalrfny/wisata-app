@@ -51,7 +51,7 @@ const Register = () => {
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <form
+      <form id="register-form"
         className="w-[350px] h-[500px] rounded-xl bg-white absolute shadow-[4px_4px_12px_rgba(0,0,0,0.25)]"
         onSubmit={handleSubmit}
       >

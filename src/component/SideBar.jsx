@@ -22,7 +22,6 @@ const SideBar = () => {
   return (
     <>
       <div
-        id="sidebar"
         className="h-[450px] w-[70px] px-5 py-6 flex flex-col justify-between shadow-[4px_4px_4px_rgba(0,0,0,0.25)] rounded-[0px_20px_20px_0px]"
       >
         <div className="h-[50%] flex flex-col justify-center gap-8">

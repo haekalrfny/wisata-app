@@ -82,13 +82,18 @@ const Tabel = () => {
     );
   } else {
     return (
-      <div className="w-full">
+      <div id="tabel-page-parent" className="w-full h-screen">
         <div className="h-full fixed flex items-center ">
           <SideBar />
         </div>
-        <div className="ml-[71px] py-20">
-          <div className="w-full h-full flex justify-center items-center">
-            <table className=" rounded-[20px] overflow-hidden text-xs">
+        <div id="tabel-page-child" className="w-full h-screen ">
+          <div className="w-full h-screen flex flex-col justify-center items-center">
+          <div id="tabel-text" className="w-[62%] mb-10">
+          <h1 className="text-[40px] leading-[48px] text-[#6868ff] font-bold">
+              Tabel Wisata
+            </h1>
+          </div>
+            <table id="tabel-parent" className=" rounded-[20px] overflow-hidden text-xs">
               <thead className="bg-[#F1F2F4] h-16 border text-center">
                 <tr>
                   <th className=" mx-3 px-5">No</th>
@@ -131,6 +136,7 @@ const Tabel = () => {
               })}
             </table>
           </div>
+          
         </div>
       </div>
     );

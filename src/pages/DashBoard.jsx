@@ -4,6 +4,7 @@ import Cards from "../component/Cards";
 import Search from "../component/Search";
 import SideBar from "../component/SideBar";
 import instance from "../api/api";
+import { CiMenuBurger } from "react-icons/ci";
 
 const DashBoard = () => {
   const { id } = useParams();
@@ -70,22 +71,32 @@ const DashBoard = () => {
   } else {
     return (
       <div className="w-full ">
-        <div className="h-full fixed flex items-center">
+        <div id="db-sidebar" className="h-full fixed flex items-center">
           <SideBar />
         </div>
         <div className="w-full h-screen flex flex-col">
-          <div className="ml-[71px] pt-10 flex items-center justify-center gap-60">
-            <div>
-              <h1 className="text-4xl font-medium">
-                Halo, <span className="text-4xl font-bold">{userName}!</span>
+          <div
+            id="db-top"
+            className="ml-[71px] pt-10 flex items-center justify-center gap-60"
+          >
+            <div id="db-nav">
+              <div id="db-icon" className="hidden">
+                <CiMenuBurger className="text-4xl " />
+              </div>
+              <h1 id="db-font" className="text-4xl font-medium">
+                Halo,
+                <span id="db-font" className="text-4xl font-bold">
+                  {userName}!
+                </span>
               </h1>
             </div>
-            <div>
+            <div id="db-search">
               <Search value={searchQuery} onChange={setSearchQuery} />
             </div>
           </div>
           {searchResult.length > 0 ? (
             <div
+              id="db-mid"
               key={id}
               className=" grow flex justify-center p-16 flex-wrap gap-8 ml-[71px]"
             >

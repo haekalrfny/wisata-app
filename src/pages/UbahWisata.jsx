@@ -4,6 +4,7 @@ import Button from "../component/Button";
 import Input from "../component/Input";
 import SideBar from "../component/SideBar";
 import instance from "../api/api";
+import { CiMenuBurger } from "react-icons/ci";
 
 const UbahWisata = () => {
   const { id } = useParams();
@@ -16,6 +17,7 @@ const UbahWisata = () => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [photo, setPhoto] = useState(null);
+  const userName = localStorage.getItem("userName");
 
   useEffect(() => {
     const checkUserToken = () => {
@@ -100,18 +102,29 @@ const UbahWisata = () => {
 
   return (
     <div className="w-full h-screen flex">
-      <div className="h-screen flex items-center ">
+      <div id="tw-sidebar" className="h-screen fixed flex items-center ">
         <SideBar />
       </div>
-      <div className="w-full h-screen flex flex-col">
-        <div className="w-full h-40 flex items-end pl-32">
+      <div id="uw-parent" className="w-full h-screen flex flex-col">
+      <div className="hidden" id="uw-top-1">
+              <div id="uw-icon" className="hidden">
+                <CiMenuBurger className="text-4xl " />
+              </div>
+              <h1 id="uw-font" className="text-4xl font-medium">
+                Halo,
+                <span id="uw-font" className="text-4xl font-bold">
+                  {userName}!
+                </span>
+              </h1>
+            </div>
+        <div id="uw-top-2" className="w-full h-40 flex items-end pl-36">
           <h1 className="text-[40px] leading-[48px] text-[#6868ff] font-bold">
             Ubah Wisata
           </h1>
         </div>
-        <form onSubmit={handleSubmit} className="w-full h-screen flex">
-          <div className="w-2/4 h-full  flex justify-center">
-            <div className="flex justify-center flex-col gap-14 w-[65%] p-5">
+        <form id="uw-bot" onSubmit={handleSubmit} className="w-full h-screen flex">
+          <div id="uw-input-1" className="w-2/4 h-full  flex justify-center">
+            <div id="input-uw" className="flex justify-center flex-col gap-14 w-[65%] p-5">
               <Input
                 value={name}
                 type="text"
@@ -134,17 +147,18 @@ const UbahWisata = () => {
               />
             </div>
           </div>
-          <div className=" w-2/4 h-full flex-col">
-            <div className="flex justify-center items-end pb-8 w-full h-[30%] ">
-              <Input
+          <div id="uw-input-2" className=" w-2/4 h-full flex flex-col items-center">
+            <div id="uw-input-alamat-parent" className="flex justify-center items-end pb-8 w-full h-[30%] ">
+              <input
+                id="uw-input-alamat-child"
                 value={address}
                 type="text"
                 onChange={(e) => setAddress(e.target.value)}
+                className=' bg-[#f6f6f6] rounded-[8px] h-5 p-6 outline-none w-[65%]'
               />
             </div>
-            <div className="w-full h-[70%]">
-              <div className="w-full h-[60%] flex justify-center items-center">
-                <div className="w-[60%] h-full bg-[#f6f6f6] flex justify-center items-center rounded-xl">
+              <div id="uw-pic-parent" className="w-full h-[45%] flex justify-center items-center">
+                <div id="uw-pic-child" className="w-[65%] h-full bg-[#f6f6f6] flex justify-center items-center rounded-xl">
                   {image ? (
                     <img
                       className="rounded-xl bg-cover w-full h-full cursor-pointer"
@@ -172,10 +186,9 @@ const UbahWisata = () => {
                   />
                 </div>
               </div>
-              <div className="w-full h-[40%] flex justify-center items-start pt-8">
-                <Button button="Update" />
+              <div id="uw-button-parent" className="w-full h-[25%] flex justify-center items-start pt-8">
+                <button id="uw-button-child" className="bg-[#6889FF] hover:bg-[#3D62E5] w-[65%] h-[48px] rounded-[8px] text-white font-bold text-[16px]">Create</button>
               </div>
-            </div>
           </div>
         </form>
       </div>
