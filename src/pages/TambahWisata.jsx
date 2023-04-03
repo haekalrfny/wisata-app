@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CiImageOn, CiMenuBurger } from "react-icons/ci";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Button from "../component/Button";
 import Input from "../component/Input";
 import SideBar from "../component/SideBar";
@@ -18,6 +18,7 @@ const TambahWisata = () => {
   const [photo, setPhoto] = useState(null);
   const [loading, setLoading] = useState(false);
   const userName = localStorage.getItem("userName");
+  const [showSidebar, setShowSidebar] = useState(false)
 
   useEffect(() => {
     const checkUserToken = () => {
@@ -28,6 +29,10 @@ const TambahWisata = () => {
     };
     checkUserToken();
   }, []);
+
+  const handleClickSidebar = () => {
+    setShowSidebar(false)
+  }
 
   const fileChangeHandler = (e) => {
     setPhoto(e.target.files[0]);
@@ -85,11 +90,16 @@ const TambahWisata = () => {
         <div id="tw-sidebar" className="h-screen fixed flex items-center ">
           <SideBar />
         </div>
+        {showSidebar ? (
+          <div onClick={handleClickSidebar} className="w-full h-screen fixed bg-black bg-opacity-50">
+            <SideBar/> 
+          </div>
+        ) : null}
         <div id="tw-parent" className="w-full h-screen flex flex-col">
         <div className="hidden" id="tw-top-1">
-              <div id="tw-icon" className="hidden">
+              <NavLink onClick={() => setShowSidebar(true)} id="tw-icon">
                 <CiMenuBurger className="text-4xl " />
-              </div>
+              </NavLink>
               <h1 id="tw-font" className="text-4xl font-medium">
                 Halo,
                 <span id="tw-font" className="text-4xl font-bold">

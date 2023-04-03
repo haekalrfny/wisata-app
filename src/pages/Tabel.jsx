@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CiCircleInfo, CiEdit, CiTrash } from "react-icons/ci";
+import { CiCircleInfo, CiEdit, CiMenuBurger, CiTrash } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
 import SideBar from "../component/SideBar";
 import instance from "../api/api";
@@ -7,10 +7,13 @@ import instance from "../api/api";
 const Tabel = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const userName = localStorage.getItem("userName");
+    const [showSidebar, setShowSidebar] = useState(false)
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    
     const checkUserToken = () => {
       const userToken = localStorage.getItem("token");
       if (!userToken || userToken === "undefined") {
@@ -19,6 +22,10 @@ const Tabel = () => {
     };
     checkUserToken();
   }, []);
+
+  const handleClickSidebar = () => {
+    setShowSidebar(false)
+  }
 
   useEffect(() => {
     setLoading(true);
@@ -82,18 +89,35 @@ const Tabel = () => {
     );
   } else {
     return (
-      <div id="tabel-page-parent" className="w-full h-screen">
-        <div className="h-full fixed flex items-center ">
+      <div className="w-full h-screen">
+        <div id="tb-sidebar" className="h-full fixed flex items-center ">
           <SideBar />
         </div>
-        <div id="tabel-page-child" className="w-full h-screen ">
-          <div className="w-full h-screen flex flex-col justify-center items-center">
-          <div id="tabel-text" className="w-[62%] mb-10">
-          <h1 className="text-[40px] leading-[48px] text-[#6868ff] font-bold">
+        {showSidebar ? (
+            <div onClick={handleClickSidebar} className="z-10 w-full h-screen fixed bg-black bg-opacity-50">
+              <SideBar/> 
+          </div>
+        ) : null}
+        <div className="w-full h-screen ">
+        <div id="tb-nav" className="hidden">
+                  <NavLink onClick={() => setShowSidebar(true)} id="tb-icon" className='hidden'>
+                  <CiMenuBurger className="text-4xl " />
+                  </NavLink>
+              <h1 id="tb-font" className="text-4xl font-medium">
+                Halo
+                <span id="tb-font" className="text-4xl font-bold">
+                  , {userName}!
+                </span>
+              </h1>
+            </div>
+          <div id="tabel" className="w-full h-screen flex flex-col items-center">
+          <div id="tb-font-parent" className="w-[62%] mb-10">
+          <h1 id="tb-font-child" className="text-[40px] leading-[48px] text-[#6868ff] font-bold">
               Tabel Wisata
             </h1>
-          </div>
-            <table id="tabel-parent" className=" rounded-[20px] overflow-hidden text-xs">
+            </div>
+            <div id="tb-parent">
+            <table id="tb-child" className=" rounded-[20px] overflow-hidden text-xs">
               <thead className="bg-[#F1F2F4] h-16 border text-center">
                 <tr>
                   <th className=" mx-3 px-5">No</th>
@@ -108,15 +132,15 @@ const Tabel = () => {
                 return (
                   <tbody key={item.id} className=" h-16 text-center ">
                     <tr className=" border">
-                      <td className="px-3">{index + 1}</td>
-                      <td className="px-3">{item.name}</td>
-                      <td className="px-3">
+                      <td className="px-3 py-3">{index + 1}</td>
+                      <td className="px-3 py-3">{item.name}</td>
+                      <td className="px-3 py-3">
                         {item.address}, {item.city}
                       </td>
-                      <td className="px-3">{item.phone}</td>
-                      <td className="px-3">{item.email}</td>
+                      <td className="px-3 py-3">{item.phone}</td>
+                      <td className="px-3 py-3">{item.email}</td>
                       <td>
-                        <span className="w-full px-10 gap-7 flex justify-center ">
+                        <span className="w-full px-10 py-3 gap-7 flex justify-center ">
                           <NavLink to={`/Dashboard/DetailWisata/${item.id} `}>
                             <CiCircleInfo className="text-xl hover:scale-110 duration-75" />
                           </NavLink>
@@ -135,6 +159,7 @@ const Tabel = () => {
                 );
               })}
             </table>
+            </div>
           </div>
           
         </div>

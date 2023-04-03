@@ -199,13 +199,13 @@
 
    /* Detail Wisata */
 
-   #detail-parent {
+   #d-parent {
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
    }
 
-   #detail-top-parent {
+   #dt-parent {
     width: 100%;
     height: auto;
     padding: 0;
@@ -213,41 +213,59 @@
     padding-bottom: 5%;
    }
 
-   #detail-top-child {
+   #dt-child {
     width: 80%;
     display: flex;
    }
 
-   #detail-top-size {
-    font-size: 45px
-   }
-
-   #detail-mid-parent {
+   #dm-parent {
     width: 100%;
     height: auto;
    }
 
-   #detail-mid-child {
+   #dm-child {
     width: 80%;
     margin: 0;
    }
 
-   #detail-bot-parent {
+   #dbot-parent {
     width: 100%;
     height: auto;
     padding-top: 5%;
    }
 
-   #detail-bot-child {
+   #dbot-child {
     padding: 0;
     width: 80%;
    }
 
-   #detail-bot-size {
+   #dbot-size {
     font-size: 25px;
    }
 
    /* Tabel Wisata */
+
+   #tb-font-parent {
+    width: 100%;
+   }
+   
+   #tb-font-child {
+    padding-left: 12%;
+    top: 22%;
+   }
+
+  #tb-parent {
+    margin-left: 20px;
+    box-sizing: border-box;
+    width: 80%;
+    overflow: scroll;
+  }
+
+  #tabel {
+    padding-top: 23%;
+  }
+
+  
 
 }
 
@@ -255,12 +273,14 @@
   
   /* Login */
   #login-form {
-    width: 345px;
+    width: 310px;
+    height: 480px;
   }
 
   /* Register */
   #register-form {
-    width: 345px;
+    width: 310px;
+    height: 480px;
   }
 
   /* Dashboard */
@@ -318,19 +338,19 @@
 
   /* Detail Wisata */
 
-  #detail-top-parent {
+  #dt-parent {
     width: 100%;
     padding: 0;
   }
 
-  #detail-top-child {
+  #dt-child {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0;
   }
 
-  #detail-font-parent {
+  #dfont-parent {
     width: 100%; 
     display: flex;
     justify-content: space-between;
@@ -343,17 +363,17 @@
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 
-  #detail-font {
+  #d-font {
     display: flex;
     font-size: 25px;
   }
 
-  #detail-top-icon {
+  #d-icon {
     font-size: 25px;
     height: 100%;
   }
 
-  #detail-top-name {
+  #d-name {
     width: 100%;
     font-size: 25px;
     padding: 5%;
@@ -362,36 +382,204 @@
     text-align: center;
   }
 
-  #detail-bot-parent {
+  #dbot-parent {
     height: auto;
     padding-bottom: 10%;
   }
 
-  #detail-bot-size {
-    font-size: x-large;
+  #dbot-size {
+    font-size: large;
   }
 
-  /* Tambah Wisata */
+  /* Tambah Wisata & Ubah Wisata */
 
-  #tw-sidebar {
+  #tw-sidebar, #uw-sidebar {
     display: none;
   }
 
-  #tw-top-1 {
+  #tw-parent, #uw-parent {
     width: 100%;
-    background-color: red;
+    height: max-content;
+    padding: 0;
   }
 
-  #tw-top-2 {
-    padding: 0;
-    margin: 0;
+  #tw-top-1, #uw-top-1 {
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    padding: 3% 2% 3% 2%;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 
-  #input-tw {
+  #tw-font, #uw-font {
+    font-size: 25px
+  }
+
+  #tw-top-2, #uw-top-2 {
     width: 100%;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    padding: 20px;
+    justify-content: flex-start;
+  }
+
+  #input-tw, #input-uw {
+    width: 100%;
+    padding: 0 5% 20px 5% ;
+    gap: 20px;
   }
   
+  #tw-input-2, #uw-input-2 {
+    width: 100%;
+    gap: 20px;
+    padding-bottom: 10%;
+  }
 
+  #tw-input-alamat-parent, #uw-input-alamat-parent {
+    width: 100%;
+    padding: 0 5% 0 5%;
+  }
+
+  #tw-input-alamat-child, #uw-input-alamat-child {
+    width: 100%;
+  }
+
+  #tw-pic-parent, #uw-pic-parent {
+    width: 100%;
+    height: auto;
+    padding: 0 5% 0 5%;
+  }
+
+  #tw-pic-child, #uw-pic-child {
+    width: 100%;
+    height: 250px;
+  }
+
+  #tw-button-parent, #uw-button-parent {
+    width: 100%;
+    padding: 0 5% 0 5%;
+  }
+
+  /* Hamburger Sidebar */
+  #sb-parent {
+    width: 70%;
+    height: 100vh;
+    background-color: white;
+    padding: 0;
+    padding: 25px;
+  }
+
+  #sb-font {
+    display: flex;
+    font-size: 25px;
+  }
+
+  #sb-icon-parent-2 {
+    width: 100%;
+    padding: 0 0 25px;
+  }
+
+  #sb-icon-child {
+    display: flex;
+    gap: 10px;
+    font-size: 25px;
+    width: auto;
+    padding-left: 7px;
+    justify-items: center;
+  }
+
+  #sb-icon-child-2 {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+  }
+
+  #icon-sb {
+    font-size: 30px;
+  }
+
+  #sb-logout {
+    height: auto;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding-left: 7px;
+    justify-items: center;
+    font-size: 25px;
+  }
+  
+  /* Tabel */
+  #tb-sidebar {
+    display: none;
+  }
+
+  #tb-font-parent {
+    width: 90%;
+    margin: 0;
+    display: flex;
+   }
+   
+   #tabel {
+    padding: 0;
+    padding-top: 8%;
+   }
+
+   #tb-font-child {
+    width: 90%;
+    padding: 0;
+   }
+
+   #tb-parent {
+    margin: 0;
+    padding: 5% 0 5% 0;
+    width: 90%;
+   }
+
+   #tb-nav {
+    width: 100%; 
+    display: flex;
+    top: 0;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+   }
+
+   #tb-icon {
+    display: flex;
+    font-size: 25px;
+    height: 100%;
+   }
+
+   #tb-font {
+    font-size: 25px;
+   }
+}
+
+
+@media screen and (max-width:375px) {
+  #login-form {
+    width: 295px;
+    height: 460px;
+  }
+
+  #register-form {
+    width: 295px;
+    height: 460px;
+  }
+}
+
+@media screen and (max-width:360px) {
+  #login-form {
+    width: 280px;
+    height: 460px;
+  }
+
+  #register-form {
+    width: 295px;
+    height: 460px;
+  }
 }

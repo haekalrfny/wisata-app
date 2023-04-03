@@ -14,6 +14,11 @@ const DashBoard = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const userName = localStorage.getItem("userName");
+  const [showSidebar, setShowSidebar] = useState(false)
+
+  const handleClickSidebar = () => {
+    setShowSidebar(false)
+  }
 
   useEffect(() => {
     const checkUserToken = () => {
@@ -70,23 +75,29 @@ const DashBoard = () => {
     );
   } else {
     return (
+      <>
       <div className="w-full ">
         <div id="db-sidebar" className="h-full fixed flex items-center">
           <SideBar />
-        </div>
+          </div>
+          {showSidebar ? (
+            <div onClick={handleClickSidebar} className="w-full h-screen fixed bg-black bg-opacity-50">
+              <SideBar/> 
+          </div>
+        ) : null}
         <div className="w-full h-screen flex flex-col">
           <div
             id="db-top"
             className="ml-[71px] pt-10 flex items-center justify-center gap-60"
           >
             <div id="db-nav">
-              <div id="db-icon" className="hidden">
-                <CiMenuBurger className="text-4xl " />
-              </div>
+                  <NavLink onClick={() => setShowSidebar(true)} id="db-icon" className='hidden'>
+                  <CiMenuBurger className="text-4xl " />
+                  </NavLink>
               <h1 id="db-font" className="text-4xl font-medium">
-                Halo,
+                Halo
                 <span id="db-font" className="text-4xl font-bold">
-                  {userName}!
+                  , {userName}!
                 </span>
               </h1>
             </div>
@@ -98,7 +109,7 @@ const DashBoard = () => {
             <div
               id="db-mid"
               key={id}
-              className=" grow flex justify-center p-16 flex-wrap gap-8 ml-[71px]"
+              className="flex grow justify-center p-16 flex-wrap gap-8 ml-[71px]"
             >
               {searchResult?.map((item) => {
                 return (
@@ -129,7 +140,10 @@ const DashBoard = () => {
             </footer>
           </div>
         </div>
-      </div>
+        </div>
+
+        
+        </>
     );
   }
 };
