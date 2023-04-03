@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Input from "../component/Input";
 import Button from "../component/Button";
 import { NavLink, useNavigate } from "react-router-dom";
+import instance from "../api/api";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -32,12 +33,12 @@ const Register = () => {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "https://frontendreq.pondokprogrammer.com/api/register",
+      url: "/register",
       headers: {},
       data: data,
     };
 
-    axios
+    instance
       .request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
