@@ -6,8 +6,11 @@ import instance from "../api/api";
 
 const Detail = () => {
   const { id } = useParams();
+
   const [data, setData] = useState();
+
   const [loading, setLoading] = useState(false);
+  
   const userName = localStorage.getItem("userName");
 
   const navigate = useNavigate()

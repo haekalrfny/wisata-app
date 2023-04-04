@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CiCircleRemove, CiHome } from "react-icons/ci";
 import { CiStickyNote } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
-import { CiEdit } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
 const SideBar = () => {
-  
+
   const userName = localStorage.getItem("userName");
 
   const [show, setShow] = useState(false);
@@ -48,18 +47,22 @@ const SideBar = () => {
           </NavLink>
         </div>
         <div id="sb-icon-parent-2" className="h-[50%] flex items-end">
-          <NavLink to='' id="sb-logout"
+          <NavLink
             onClick={() => setShow(true)}
             className="text-3xl hover:scale-110 duration-75"
           >
-            <CiLogout id="icon-sb" className="h-auto" />
-            <p id="sb-icon-child-2" className="hidden">Keluar</p>
+            <CiLogout id="icon-sb-2" className="h-auto" />
+            <p id="sb-icon-child-3" className="hidden">Keluar</p>
+          </NavLink>
+          <NavLink to='/' onClick={logOut} id="sb-logout" className='text-3xl hover:scale-110 duration-75 hidden'>
+            <CiLogout id="icon-sb-3" className="h-auto" />
+            <p id="sb-icon-child-4" className="hidden">Keluar</p>
           </NavLink>
         </div>
       </div>
 
       {show ? (
-        <div id="logout" className="fixed w-full h-screen bg-black bg-opacity-50 flex justify-center items-center">
+        <div id="logout" className="z-[9999] fixed w-full h-screen bg-black bg-opacity-50 flex justify-center items-center">
           <div className="w-[500px] h-[300px] rounded-[20px] bg-[#FFFFFF] flex flex-col">
             <div className="w-full h-[15%]  flex justify-end items-center px-4">
               <NavLink onClick={() => setShow(false)}>

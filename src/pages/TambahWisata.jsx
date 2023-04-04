@@ -16,8 +16,11 @@ const TambahWisata = () => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [photo, setPhoto] = useState(null);
+
   const [loading, setLoading] = useState(false);
+
   const userName = localStorage.getItem("userName");
+  
   const [showSidebar, setShowSidebar] = useState(false)
 
   useEffect(() => {

@@ -110,8 +110,8 @@ const Tabel = () => {
                 </span>
               </h1>
             </div>
-          <div id="tabel" className="w-full h-screen flex flex-col items-center">
-          <div id="tb-font-parent" className="w-[62%] mb-10">
+          <div id="tabel" className="pt-8 w-full h-screen flex flex-col items-center">
+          <div id="tb-font-parent" className="w-[65%] mb-10">
           <h1 id="tb-font-child" className="text-[40px] leading-[48px] text-[#6868ff] font-bold">
               Tabel Wisata
             </h1>

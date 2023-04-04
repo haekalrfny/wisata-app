@@ -6,6 +6,7 @@ import Input from "../component/Input";
 import instance from "../api/api";
 
 const Login = () => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

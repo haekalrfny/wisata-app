@@ -262,7 +262,7 @@
   }
 
   #tabel {
-    padding-top: 23%;
+    padding-top: 20%;
   }
 
   
@@ -493,8 +493,26 @@
     justify-content: center;
   }
 
+  #sb-icon-child-3 {
+    display: none;
+  }
+
   #icon-sb {
     font-size: 30px;
+  }
+
+  #icon-sb-2 {
+    display: none;
+  }
+
+  #icon-sb-3 {
+    font-size: 30px;
+  }
+
+  #sb-icon-child-4 {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
   }
 
   #sb-logout {

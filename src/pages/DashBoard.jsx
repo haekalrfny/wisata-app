@@ -7,13 +7,20 @@ import instance from "../api/api";
 import { CiMenuBurger } from "react-icons/ci";
 
 const DashBoard = () => {
+
   const { id } = useParams();
+
   const navigate = useNavigate();
+
   const [data, setData] = useState([]);
+
   const [loading, setLoading] = useState(false);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+
   const userName = localStorage.getItem("userName");
+  
   const [showSidebar, setShowSidebar] = useState(false)
 
   const handleClickSidebar = () => {
