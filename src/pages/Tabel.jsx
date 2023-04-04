@@ -110,13 +110,13 @@ const Tabel = () => {
                 </span>
               </h1>
             </div>
-          <div id="tabel" className="pt-8 w-full h-screen flex flex-col items-center">
+          <div id="tabel" className="pt-[5%] w-full h-screen flex flex-col items-center">
           <div id="tb-font-parent" className="w-full pl-64 mb-10">
           <h1 id="tb-font-child" className="text-[40px] leading-[48px] text-[#6868ff] font-bold">
               Tabel Wisata
             </h1>
             </div>
-            <div id="tb-parent">
+            <div id="tb-parent" >
             <table id="tb-child" className=" rounded-[20px] overflow-hidden text-xs">
               <thead className="bg-[#F1F2F4] h-16 border text-center">
                 <tr>
