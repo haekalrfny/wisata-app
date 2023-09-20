@@ -1,5 +1,3 @@
-import React from "react";
-
 const Cards = ({ src, alt, name, address, city, phone }) => {
   return (
     <div className="w-72 h-[280px] flex flex-col gap-3 rounded-xl shadow-[4px_4px_12px_rgba(0,0,0,0.25)] hover:scale-105 duration-75 cursor-pointer">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Button from "../component/Button";
 import CheckBox from "../component/CheckBox";
@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <form id="login-form"
-        className=" w-[350px] h-[500px] rounded-xl absolute shadow-[4px_4px_12px_rgba(0,0,0,0.25)]"
+        className=" w-[25%] h-[75%] rounded-xl absolute shadow-[4px_4px_12px_rgba(0,0,0,0.25)]"
         onSubmit={handleSubmit}
       >
         <div className="w-full flex justify-center p-16">
@@ -77,7 +77,7 @@ const Login = () => {
           />
         </div>
         <div className="flex justify-center">
-          <Button button='Button' />
+          <Button button='Login' />
         </div>
         <div className="w-full flex flex-col ml-10 mt-2 gap-5">
           <CheckBox />

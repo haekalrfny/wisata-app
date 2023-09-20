@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CiImageOn, CiMenuBurger } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
-import Button from "../component/Button";
 import Input from "../component/Input";
 import SideBar from "../component/SideBar";
 import instance from "../api/api";

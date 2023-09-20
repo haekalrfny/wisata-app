@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SlArrowLeft } from "react-icons/sl";
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 import { NavLink, useNavigate, useParams } from "react-router-dom";

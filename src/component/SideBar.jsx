@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import { CiCircleRemove, CiHome } from "react-icons/ci";
-import { CiStickyNote } from "react-icons/ci";
-import { CiCirclePlus } from "react-icons/ci";
-import { CiLogout } from "react-icons/ci";
+import { useState } from "react";
+import { CiCircleRemove, CiHome, CiStickyNote, CiCirclePlus, CiLogout } from "react-icons/ci";
 import { NavLink} from "react-router-dom";
 
 const SideBar = () => {
@@ -20,12 +17,13 @@ const SideBar = () => {
   const logOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
+    localStorage.removeItem('email')
   };
 
   return (
     <>
       <div id="sb-parent"
-        className="h-[450px] w-[70px] px-5 py-6 flex flex-col justify-between shadow-[4px_4px_4px_rgba(0,0,0,0.25)] rounded-[0px_20px_20px_0px] z-0"
+        className="h-[450px] fixed w-[70px] px-5 py-6 flex flex-col justify-between shadow-[4px_4px_4px_rgba(0,0,0,0.25)] rounded-[0px_20px_20px_0px]"
       >
         <div id="sb-icon-parent" className="h-[50%] flex flex-col justify-center gap-8">
         <h1 id="sb-font" className="text-4xl font-medium hidden">

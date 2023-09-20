@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CiCircleInfo, CiEdit, CiMenuBurger, CiTrash } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
 import SideBar from "../component/SideBar";
@@ -89,7 +89,7 @@ const Tabel = () => {
     );
   } else {
     return (
-      <div className="w-full h-screen">
+      <div className="w-full h-full">
         <div id="tb-sidebar" className="h-full fixed flex items-center ">
           <SideBar />
         </div>
@@ -98,7 +98,7 @@ const Tabel = () => {
               <SideBar/> 
           </div>
         ) : null}
-        <div className="w-full h-screen ">
+        <div className="w-full h-full ">
         <div id="tb-nav" className="hidden">
                   <NavLink onClick={() => setShowSidebar(true)} id="tb-icon" className='hidden'>
                   <CiMenuBurger className="text-4xl " />
@@ -110,15 +110,15 @@ const Tabel = () => {
                 </span>
               </h1>
             </div>
-          <div id="tabel" className="pt-[5%] w-full h-screen flex flex-col items-center">
+          <div id="tabel" className="pt-[5%] pb-[5%] w-full h-full flex flex-col items-center">
           <div id="tb-font-parent" className="w-full pl-64 mb-10">
           <h1 id="tb-font-child" className="text-[40px] leading-[48px] text-[#6868ff] font-bold">
               Tabel Wisata
             </h1>
             </div>
-            <div id="tb-parent" >
+            <div id="tb-parent" className="border rounded-[20px]">
             <table id="tb-child" className=" rounded-[20px] overflow-hidden text-xs">
-              <thead className="bg-[#F1F2F4] h-16 border text-center">
+              <thead className="bg-[#F1F2F4] h-16 text-center">
                 <tr>
                   <th className=" mx-3 px-5">No</th>
                   <th className="mx-3">Nama</th>
@@ -131,7 +131,7 @@ const Tabel = () => {
               {data?.map((item, index) => {
                 return (
                   <tbody key={item.id} className=" h-16 text-center ">
-                    <tr className=" border">
+                    <tr className="border-y">
                       <td className="px-3 py-3">{index + 1}</td>
                       <td className="px-3 py-3">{item.name}</td>
                       <td className="px-3 py-3">

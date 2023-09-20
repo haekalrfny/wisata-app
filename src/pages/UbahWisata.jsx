@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
-import Button from "../component/Button";
 import Input from "../component/Input";
 import SideBar from "../component/SideBar";
 import instance from "../api/api";

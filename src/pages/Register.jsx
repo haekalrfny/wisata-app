@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import {useState } from "react";
 import Input from "../component/Input";
 import Button from "../component/Button";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -53,7 +53,7 @@ const Register = () => {
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <form id="register-form"
-        className="w-[350px] h-[500px] rounded-xl bg-white absolute shadow-[4px_4px_12px_rgba(0,0,0,0.25)]"
+        className="w-[25%] h-[75%] rounded-xl bg-white absolute shadow-[4px_4px_12px_rgba(0,0,0,0.25)]"
         onSubmit={handleSubmit}
       >
         <div className="flex justify-center w-full p-10">
